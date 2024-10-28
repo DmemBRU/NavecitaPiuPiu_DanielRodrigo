@@ -21,7 +21,7 @@ public class spawnEnemigos : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(enemigoPrefab, transform.position, Quaternion.identity);
+            Instantiate(enemigoPrefab, new Vector3(transform.position.x, Random.Range(-4.567998f, 4.567998f),0), Quaternion.identity);
 
             yield return new WaitForSeconds(2);
         }
