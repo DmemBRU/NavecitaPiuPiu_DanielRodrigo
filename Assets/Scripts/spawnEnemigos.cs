@@ -19,6 +19,7 @@ public class spawnEnemigos : MonoBehaviour
 
     private IEnumerator spawnearNaves()
     {
+        //bucle infinito
         while (true)
         {
             Instantiate(enemigoPrefab, new Vector3(transform.position.x, Random.Range(-4.567998f, 4.567998f),0), Quaternion.identity);
