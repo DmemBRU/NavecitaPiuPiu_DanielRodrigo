@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -10,11 +11,12 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject SpawnPoint;
     [SerializeField] private int vida;
     [SerializeField] Animator anim;
-    [SerializeField] TextMesh textoVida;
+    [SerializeField] TMP_Text textoVida;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        textoVida.SetText("" + vida);
     }
 
     // Update is called once per frame
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
     {
         vida -= dannioRecibido;
         anim.SetTrigger("golpe");
+        textoVida.SetText("" + vida);
        
 
         if (vida <= 0)
