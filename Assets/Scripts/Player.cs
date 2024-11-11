@@ -8,10 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField] int velocidad;
     [SerializeField] private GameObject Disparo;
     [SerializeField] private GameObject SpawnPoint;
+    [SerializeField] private int vida;
+    [SerializeField] Animator anim;
+    [SerializeField] TextMesh textoVida;
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,5 +44,19 @@ public class Player : MonoBehaviour
             Instantiate(Disparo, SpawnPoint.transform.position, quaternion.identity);
         
         };
+    }
+
+    public void RecibirDannio(int dannioRecibido)
+    {
+        vida -= dannioRecibido;
+        anim.SetTrigger("golpe");
+       
+
+        if (vida <= 0)
+        {
+            Destroy(this.gameObject);
+
+        }
+
     }
 }

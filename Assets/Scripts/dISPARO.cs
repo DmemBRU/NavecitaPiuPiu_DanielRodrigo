@@ -27,5 +27,12 @@ public class dISPARO : MonoBehaviour
             other.gameObject.GetComponent<enemigo>().RecibirDannio(damage);
             
         }
+
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy (this.gameObject);
+            other.gameObject.GetComponent<Player>().RecibirDannio(damage);
+
+        }
     }
 }

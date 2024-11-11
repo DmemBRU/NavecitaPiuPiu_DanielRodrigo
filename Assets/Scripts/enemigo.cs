@@ -10,10 +10,14 @@ public class enemigo : MonoBehaviour
     [SerializeField] int velocidad;
     [SerializeField] int vida;
     [SerializeField] Animator anim;
+    [SerializeField] GameObject bala;
+    [SerializeField] GameObject spawnpoint;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        StartCoroutine(disparo());
     }
 
     // Update is called once per frame
@@ -43,5 +47,12 @@ public class enemigo : MonoBehaviour
         }
     
     }
-    
+    private IEnumerator disparo()
+    {
+        while (true)
+        {
+            Instantiate(bala, spawnpoint.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(3);
+        }
+    }
 }
